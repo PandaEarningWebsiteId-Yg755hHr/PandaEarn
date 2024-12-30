@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Record</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .record-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .record-table th, .record-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .record-table th {
+            background-color: #9007;
+            color: #fff;
+            font-size: 18px;
+        }
+        .record-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .record-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .no-record {
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-top: 20px;
+        }
+        .status-success {
+            color: green;
+        }
+        .status-pending {
+            color: orange;
+        }
+        .status-failed {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Referral Record</h1>
+        <table class="record-table">
+            <thead>
+                <tr>
+                    <th>Referral ID</th>
+                    <th>Referral Date</th>
+                    <th>Referral Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="referral-records">
+                <!-- Placeholder rows for referral records -->
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="status-success">-</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="status-success">-</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="status-failed">-</td>
+                </tr>
+                <!-- Add more records dynamically as needed -->
+            </tbody>
+        </table>
+
+        <!-- Message for no records -->
+        <div class="no-record" id="no-record-message" style="display:none;">No referral records found.</div>
+        
+        <div>
+         Not Records Found
+        </div>
+    </div>
+   
+
+    <script>
+        // Simulate dynamic records and show 'No records' if no data available
+        const records = [
+            { id: "-", date: "-", amount: "-", status: "-" },
+            { id: "-", date: "-", amount: "-", status: "-" },
+            { id: "-", date: "-", amount: "-", status: "-" }
+        ];
+
+        const tableBody = document.getElementById("referral-records");
+        const noRecordMessage = document.getElementById("no-record-message");
+
+        // Function to render referral records dynamically
+        function renderRecords(records) {
+            if (records.length === 0) {
+                noRecordMessage.style.display = "block";
+            } else {
+                records.forEach(record => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${record.id}</td>
+                        <td>${record.date}</td>
+                        <td>${record.amount}</td>
+                        <td class="status-${record.status.toLowerCase()}">${record.status}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+        }
+
+        // Call renderRecords function with sample data
+        renderRecords(records);
+    </script>
+    
+    
+</body>
+</html>

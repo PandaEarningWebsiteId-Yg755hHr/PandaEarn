@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      padding: 30px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: white;
+    }
+    .input-field {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .input-field:focus {
+      border-color: #ff7e5f;
+      outline: none;
+    }
+    .button {
+      background-color: #ff7e5f;
+      color: white;
+      padding: 12px 20px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .button:hover {
+      background-color: #feb47b;
+    }
+    .refer-code {
+      background-color: #e2e2e2;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .refer-code input {
+      background: none;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      width: 100%;
+      cursor: not-allowed;
+    }
+    .login-button {
+      background-color: #feb47b;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    .login-button:hover {
+      background-color: #ff7e5f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <div class="refer-code">
+        <label for="refer-code">Referral Id:</label>
+        <input type="text" id="refer-code" value="idyjf53hu47p" disabled>
+      </div>
+      <input type="text" class="input-field" name="first-name" placeholder="First Name" required>
+      <input type="text" class="input-field" name="last-name" placeholder="Last Name" required>
+      <input type="text" class="input-field" name="phone-number" placeholder="Phone Number" required>
+      <input type="email" class="input-field" name="email" placeholder="Email" required>
+      <input type="password" class="input-field" name="password" placeholder="Password" required>
+      <input type="password" class="input-field" name="retype-password" placeholder="Re-type Password" required>
+      <button type="button" class="button" onclick="validateForm()">Sign Up</button>    
+    </form>
+
+    <a href="login.html">
+      <button class="login-button">Already have an account? Login</button>
+    </a>
+  </div>
+
+  <script>
+    function validateForm() {
+      const form = document.getElementById('signupForm');
+      const password = form.querySelector('[name="password"]').value;
+      const retypePassword = form.querySelector('[name="retype-password"]').value;
+
+      if (form.checkValidity()) {
+        if (password !== retypePassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+        // If the form is valid and passwords match, redirect to signup-success.html
+        window.location.href = "home.html";
+      } else {
+        // If form is invalid, show validation messages
+        form.reportValidity();
+      }
+    }
+  </script>
+
+</body>
+</html>

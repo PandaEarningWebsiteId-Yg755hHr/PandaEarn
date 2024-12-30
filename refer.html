@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refer Link</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      left: 0;
+    }
+    #textToCopy {
+      padding: 10px;
+      border: 5px solid #ccc;
+      displa: inline-block;
+      margin-bottom: 30px;
+      background-color: blue;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+   
+   .blue{
+     background-color: wheat;
+     color: black;
+     text-align: left;
+   }
+  </style>
+</head>
+<body>
+
+<div id="textToCopy"> Register with my link to get rs250 free signup rewards
+  https://whatsapp.com/channel/0029Vb1tzlFA89MiGX4zeS3p/100</div> 
+<br>
+<button onclick="copyText()">Click to Copy</button>
+<div> </br>
+  Important Note👇
+
+<div class="blue"> </br>Referral Bonus: </br> </br>
+
+1. Invite and Earn!
+Invite friends to register and make their first investment, and you will immediately receive a 37% cashback!
+ </br> </br>
+2. Tiered Rewards!
+When members in your second tier invest, you will receive 3% cashback from each one. For members in your third tier, you will also receive 1% cashback.
+ </br> </br></textarea>
+</div>
+
+
+<script>
+  function copyText() {
+    // Get the text to copy
+    const textToCopy = document.getElementById("textToCopy").innerText;
+
+    // Create a temporary input element to copy the text
+    const tempInput = document.createElement("input");
+    tempInput.value = textToCopy;
+    document.body.appendChild(tempInput);
+
+    // Select and copy the text
+    tempInput.select();
+    document.execCommand("copy");
+
+    // Remove the temporary input element
+    document.body.removeChild(tempInput);
+
+    // Show a confirmation message
+    alert("Text copied to clipboard!");
+  }
+</script>
+
+</body>
+</html>
